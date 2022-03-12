@@ -1,0 +1,22 @@
+/* variables */
+:root {
+  --sm: 576px;
+  --md: 768px;
+  --lg: 992px;
+  --xl: 1200px;
+  --xxl: 1400px;
+}
+/* styles for navbar */
+.navbar-nav {
+  /* border: 1px solid var(--red); */
+  margin-top: 20px;
+}
+
+@media (min-width: 992px) {
+  .navbar-nav {
+    /* border: 1px solid red; */
+    margin: 0px;
+    flex: 1;
+    justify-content: flex-end;
+  }
+}
