@@ -1,19 +1,23 @@
 import { getProducts } from "../api";
+import { parseRequestUrl } from "../utils";
 
 const Pagination = {
   render: async () => {
+    const { value } = parseRequestUrl();
+    console.log({ value });
     const {
-      data: { products, pages, page },
+      data: { pages, page },
       message,
-    } = await getProducts();
+    } = await getProducts(value);
+    console.log({ page });
     return `
     <nav class="text-center mt-2" >
     <ul class="pagination pagination-md my-0">
       ${Array.from({ length: pages }, (v, i) => i)
         .map(
-          (page) =>
+          (p) =>
             `
-        <li class="page-item"><a class="page-link" href="#/?page=${page + 1}">${page + 1}</a></li>
+        <li class="page-item ${value == p + 1 && "active"}"><a class="page-link" href="#/?page=${p + 1}">${p + 1}</a></li>
       `
         )
         .join("")}

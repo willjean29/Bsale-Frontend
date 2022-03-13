@@ -20,12 +20,16 @@ export const parseRequestUrl = () => {
 // };
 
 export const showLoading = () => {
+  console.log("loadinggg");
+  document.getElementById("loader").classList.remove("hide");
   document.getElementById("loader").classList.add("show");
+
   document.getElementById("main-container").classList.add("container-center");
   document.getElementById("main-content").style.display = "none";
 };
 
 export const hideLoading = () => {
+  document.getElementById("loader").classList.remove("show");
   document.getElementById("loader").classList.add("hide");
   document.getElementById("main-container").classList.remove("container-center");
   document.getElementById("main-content").style.display = "block";

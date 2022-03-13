@@ -4,13 +4,9 @@ import { parseRequestUrl } from "../utils";
 const HomeScreen = {
   render: async () => {
     const { value } = parseRequestUrl();
-    console.log({ value });
     const {
-      data: { products, pages, page },
-      message,
+      data: { products },
     } = await getProducts(value);
-    console.log(pages);
-    console.log(products);
     return `
       ${products
         .map(
