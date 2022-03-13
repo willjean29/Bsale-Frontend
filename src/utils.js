@@ -5,8 +5,9 @@ export const parseRequestUrl = () => {
   return {
     path: pathname,
     params: {
-      page: params.get("page"),
-      category: params.get("category"),
+      page: params.get("page") || "",
+      category: params.get("category") || "",
+      search: params.get("search") || "",
     },
   };
   // const address = document.location.hash.slice(1).split("?")[0];

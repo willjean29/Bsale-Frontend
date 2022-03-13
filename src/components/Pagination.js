@@ -9,7 +9,7 @@ const Pagination = {
     const {
       data: { pages, page },
       message,
-    } = await getProducts(params.page, params.category);
+    } = await getProducts(params.page, params.category, params.search);
     console.log({ pages });
     if (pages == 1) return "";
     return `
@@ -21,7 +21,9 @@ const Pagination = {
             `
         <li class="page-item ${
           params.page ? (params.page == p + 1 ? "active" : "") : p + 1 === 1 ? "active" : ""
-        }"><a class="page-link" href="/?page=${p + 1}${params.category ? "&category=" + params.category : ""}">${p + 1}</a></li>
+        }"><a class="page-link" href="/?page=${p + 1}${params.category ? "&category=" + params.category : ""}${
+              params.search ? "&search=" + params.search : ""
+            }">${p + 1}</a></li>
       `
         )
         .join("")}

@@ -4,9 +4,9 @@ const api = axios.create({
   baseURL: "http://localhost:4000",
 });
 
-export const getProducts = async (page = "1", category = "") => {
+export const getProducts = async (page = "1", category = "", search = "") => {
   try {
-    const response = await api.get(`/api/products?page=${page}&category=${category}`);
+    const response = await api.get(`/api/products?page=${page}&category=${category}&keyword=${search}`);
     return response.data;
   } catch (error) {
     console.log(error);
