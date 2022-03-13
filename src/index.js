@@ -21,10 +21,10 @@ const routes = {
 
 const router = async () => {
   showLoading();
-  const request = parseRequestUrl();
-  const parseUrl = (request.resource ? `/${request.resource}` : "/") + (request.id ? "/:id" : "") + (request.verb ? `/${request.verb}` : "");
-
-  const screen = routes[parseUrl] ? routes[parseUrl] : Error404Screen;
+  const { path, params } = parseRequestUrl();
+  // const parseUrl = (request.resource ? `/${request.resource}` : "/") + (request.id ? "/:id" : "") + (request.verb ? `/${request.verb}` : "");
+  // console.log({parseUrl});
+  const screen = routes[path] ? routes[path] : Error404Screen;
   const header = document.getElementById("header-container");
   header.innerHTML = Header.render();
   Header.after_render();
@@ -38,7 +38,7 @@ const router = async () => {
 
   const main = document.getElementById("products__content");
   main.innerHTML = await screen.render();
-  if (routes[parseUrl]) {
+  if (routes[path]) {
     const pagination = document.getElementById("products__pagination");
     pagination.innerHTML = await Pagination.render();
   }

@@ -1,6 +1,8 @@
 import { getCategories } from "../api";
+import { parseRequestUrl } from "../utils";
 const Aside = {
   render: async () => {
+    const { params } = parseRequestUrl();
     const {
       data: { categories },
       message,
@@ -10,8 +12,8 @@ const Aside = {
     ${categories
       .map(
         (category) => `
-        <li class="list-group-item category-name">
-          <a href="/#/?category/${category.name}">${category.name}</a>
+        <li class="list-group-item category-name ${params.category ? (params.category == category.name ? "active" : "") : ""}">
+          <a href="/?category=${category.name}">${category.name}</a>
         </li>
       `
       )

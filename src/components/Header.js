@@ -1,12 +1,9 @@
-import { parseRequestUrl } from "../utils";
-
 const Header = {
   render: () => {
-    const { value } = parseRequestUrl();
     return ` 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="#">Bsale Store</a>
+      <a class="navbar-brand" href="/">Bsale Store</a>
       <button
         class="navbar-toggler"
         type="button"

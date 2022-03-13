@@ -12,6 +12,9 @@ body {
 .navbar-nav {
   margin-top: 20px;
 }
+.navbar-brand {
+  font-size: 24px;
+}
 
 @media (min-width: 992px) {
   .navbar {
@@ -134,4 +137,28 @@ p {
 .page-item.active .page-link {
   background-color: var(--bs-dark);
   border-color: var(--bs-dark);
+}
+
+/* styles for aside */
+.category-name {
+  padding: 0;
+}
+.category-name:hover {
+  background-color: var(--bs-dark);
+}
+.category-name a {
+  padding: 10px;
+  text-decoration: none;
+  color: var(--bs-dark);
+  display: block;
+}
+.category-name:hover a {
+  color: var(--bs-light);
+}
+.category-name.active {
+  background-color: var(--bs-dark);
+  border-color: var(--bs-dark);
+}
+.category-name.active a {
+  color: var(--bs-light);
 }

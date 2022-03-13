@@ -3,10 +3,12 @@ import { parseRequestUrl } from "../utils";
 
 const HomeScreen = {
   render: async () => {
-    const { value } = parseRequestUrl();
+    const {
+      params: { page, category },
+    } = parseRequestUrl();
     const {
       data: { products },
-    } = await getProducts(value);
+    } = await getProducts(page, category);
     return `
       ${products
         .map(
