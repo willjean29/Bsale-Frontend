@@ -1,5 +1,5 @@
-import { HomeScreen } from "./screens";
-import { Aside, Header } from "./components";
+import { HomeScreen, Error404Screen } from "./screens";
+import { Aside, Header, Pagination } from "./components";
 import { parseRequestUrl, showLoading, hideLoading } from "./utils";
 const routes = {
   "/": HomeScreen,
@@ -23,7 +23,7 @@ const router = async () => {
   showLoading();
   const request = parseRequestUrl();
   const parseUrl = (request.resource ? `/${request.resource}` : "/") + (request.id ? "/:id" : "") + (request.verb ? `/${request.verb}` : "");
-  console.log(request);
+
   const screen = routes[parseUrl] ? routes[parseUrl] : Error404Screen;
   const header = document.getElementById("header-container");
   header.innerHTML = Header.render();
@@ -38,6 +38,11 @@ const router = async () => {
 
   const main = document.getElementById("products__content");
   main.innerHTML = await screen.render();
+  if (routes[parseUrl]) {
+    const pagination = document.getElementById("products__pagination");
+    pagination.innerHTML = await Pagination.render();
+  }
+
   if (screen.after_render) await screen.after_render();
   hideLoading();
 };

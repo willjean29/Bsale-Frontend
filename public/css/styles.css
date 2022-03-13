@@ -45,6 +45,11 @@ p {
   margin: 0;
 }
 
+/* a {
+  text-decoration: none;
+  color: #000;
+} */
+
 .products__content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -107,4 +112,14 @@ p {
 
 .category-name {
   text-transform: capitalize;
+}
+
+.error-page {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 28px;
+}
+
+.error-page i {
+  font-size: 60px;
 }

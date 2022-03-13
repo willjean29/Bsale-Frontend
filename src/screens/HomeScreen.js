@@ -3,23 +3,27 @@ import { parseRequestUrl } from "../utils";
 
 const HomeScreen = {
   render: async () => {
-    // const { value } = parseRequestUrl();
+    const { value } = parseRequestUrl();
+    console.log({ value });
     const {
-      data: { products },
+      data: { products, pages, page },
       message,
-    } = await getProducts();
+    } = await getProducts(value);
+    console.log(pages);
     console.log(products);
     return `
       ${products
         .map(
           (product) => `
           <div class="card">
-          <img src="https://dojiw2m9tvv09.cloudfront.net/11132/product/misterbig3308256.jpg" class="img-thumbnail" alt="..." />
+          <img src=${
+            product.url_image ? product.url_image : "https://westerrands.websites.co.in/e-store/img/defaults/product-default.png"
+          } class="img-thumbnail" alt=${product.name} />
           <div class="card-body">
-            <h5 class="card-title">Pisco Alto</h5>
+            <h5 class="card-title">${product.name}</h5>
           </div>
           <div class="card-footer">
-            <small class="text-muted">$ 3900.00</small>
+            <small class="text-muted">$ ${product.price}</small>
             <a href="/store" class="btn-store">
               <i class="fa fa-store"></i>
             </a>

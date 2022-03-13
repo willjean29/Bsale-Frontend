@@ -10,7 +10,9 @@ const Aside = {
     ${categories
       .map(
         (category) => `
-        <li class="list-group-item category-name">${category.name}</li>
+        <li class="list-group-item category-name">
+          <a href="/#/?category/${category.name}">${category.name}</a>
+        </li>
       `
       )
       .join("\n")}
