@@ -1,4 +1,5 @@
-import { getCartItems } from "../localStore";
+import { getCartItems, setCartItems } from "../localStore";
+
 const ItemCart = {
   render: () => {
     const items = getCartItems();
@@ -25,8 +26,8 @@ const ItemCart = {
             <p><strong>Qty</strong>: ${item.qty}</p>
           </div>
           <div class="item-cart__actions">
-            <a class="btn btn-danger" type="button">
-              <i class="fa fa-trash"></i>
+            <a class="btn btn-danger" type="button" data-id=${item.id} id="item-btn-delete">
+              <i class="fa fa-trash" data-id=${item.id}></i>
             </a>
           </div>
         </li>
@@ -34,6 +35,38 @@ const ItemCart = {
         )
         .join("\n")}
     `;
+  },
+  after_render: () => {
+    const items = Array.from(document.querySelectorAll("#item-btn-delete"));
+    items.map((item) => {
+      item.addEventListener("click", async (event) => {
+        const id = event.target.dataset.id;
+        console.log({ id });
+        const cartProducts = getCartItems();
+        const shoppingCart = cartProducts.filter((item) => item.id !== Number(id));
+        console.log(shoppingCart);
+        setCartItems(shoppingCart);
+
+        const listCart = document.getElementById("list-cart");
+        if (listCart) {
+          listCart.innerHTML = ItemCart.render();
+          ItemCart.after_render();
+        }
+
+        Toastify({
+          text: "Product Removed Successfully",
+          duration: 1500,
+          newWindow: true,
+          close: true,
+          gravity: "top", // `top` or `bottom`
+          position: "right", // `left`, `center` or `right`
+          stopOnFocus: true, // Prevents dismissing of toast on hover
+          style: {
+            background: "#198754",
+          },
+        }).showToast();
+      });
+    });
   },
 };
 

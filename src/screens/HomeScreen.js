@@ -52,7 +52,9 @@ const HomeScreen = {
         const listCart = document.getElementById("list-cart");
         if (listCart) {
           listCart.innerHTML = ItemCart.render();
+          ItemCart.after_render();
         }
+
         Toastify({
           text: "Product Added Successfully",
           duration: 1500,

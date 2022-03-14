@@ -30,7 +30,10 @@ const router = async () => {
 
   const listCart = document.getElementById("list-cart");
   listCart.innerHTML = ItemCart.render();
+  ItemCart.after_render();
+
   if (screen.after_render) await screen.after_render();
+
   hideLoading();
 };
 window.addEventListener("load", router);
