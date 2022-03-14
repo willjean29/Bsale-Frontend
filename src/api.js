@@ -23,3 +23,13 @@ export const getCategories = async () => {
     return { error: err.response.data.message || err.message };
   }
 };
+
+export const getProductById = async (id) => {
+  try {
+    const response = await api.get(`/api/products/${id}`);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    return { error: err.response.data.message || err.message };
+  }
+};

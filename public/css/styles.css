@@ -162,3 +162,26 @@ p {
 .category-name.active a {
   color: var(--bs-light);
 }
+
+/* styles for cart item */
+
+.item-cart {
+  /* border: 1px solid green; */
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  align-items: center;
+  gap: 10px;
+}
+.item-cart__properties p {
+  font-size: 14px;
+}
+.item-cart__properties .item-name {
+  text-transform: capitalize;
+}
+
+.item-cart__empty p {
+  font-size: 24px;
+}
+.item-cart__empty i {
+  font-size: 24px;
+}

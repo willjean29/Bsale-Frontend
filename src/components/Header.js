@@ -26,7 +26,7 @@ const Header = {
             <button class="btn btn-outline-success" type="submit"><i class="fa fa-search"></i></button>
           </form>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">
+            <a class="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
               <i class="fa fa-store"></i>
               Cart
             </a>
