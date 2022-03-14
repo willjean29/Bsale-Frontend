@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:4000",
+  baseURL: "https://bsale-api-v1.herokuapp.com",
 });
 
 export const getProducts = async (page = "1", category = "", search = "") => {
