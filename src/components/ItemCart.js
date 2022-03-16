@@ -39,9 +39,9 @@ const ItemCart = {
   after_render: () => {
     const items = Array.from(document.querySelectorAll("#item-btn-delete"));
     items.map((item) => {
+      // EVENT TO ADD PRODUCT IN SHOPPING CART
       item.addEventListener("click", async (event) => {
         const id = event.target.dataset.id;
-        console.log({ id });
         const cartProducts = getCartItems();
         const shoppingCart = cartProducts.filter((item) => item.id !== Number(id));
         console.log(shoppingCart);

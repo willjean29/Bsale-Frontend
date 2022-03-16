@@ -13,7 +13,7 @@ const Aside = {
       .map(
         (category) => `
         <li class="list-group-item category-name ${params.category ? (params.category == category.name ? "active" : "") : ""}">
-          <a href="/?category=${category.name}">${category.name}</a>
+          <a href="/#/?category=${category.name}">${category.name}</a>
         </li>
       `
       )

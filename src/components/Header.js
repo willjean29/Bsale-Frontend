@@ -38,12 +38,13 @@ const Header = {
  `;
   },
   after_render: () => {
+    // EVENT TO SEARCH PRODUCT BY KEYWORD
     const form = document.getElementById("form-search");
     if (form) {
       form.addEventListener("submit", (event) => {
         event.preventDefault();
         const input = document.getElementById("product-name");
-        location.href = `?search=${input.value}`;
+        location.href = `/#/?search=${input.value}`;
       });
     }
   },

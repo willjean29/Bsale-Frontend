@@ -29,7 +29,6 @@ body {
 
 /* styles for main */
 .main {
-  /* border: 1px solid green; */
   flex: 1;
   padding: 20px 0;
 }
@@ -37,7 +36,6 @@ body {
 /* styles for footer */
 .footer {
   height: 40px;
-  /* border: 1px solid yellow; */
   margin: 0;
   display: flex;
   justify-content: center;
@@ -48,17 +46,19 @@ p {
   margin: 0;
 }
 
-/* a {
-  text-decoration: none;
-  color: #000;
-} */
-
+/* styles for container products */
 .products__content {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
   gap: 30px;
   padding: 10px 0;
+}
+.products__content-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
 }
 
 /* styles for card products */
@@ -82,7 +82,6 @@ p {
 .loader-container {
   display: flex;
   align-items: stretch;
-  /* border: 1px solid red; */
   flex: 2;
   min-height: 100%;
 }
@@ -118,6 +117,7 @@ p {
   text-transform: capitalize;
 }
 
+/* styles for erro page */
 .error-page {
   margin-top: 40px;
   text-align: center;
@@ -128,6 +128,7 @@ p {
   font-size: 60px;
 }
 
+/* styles for pagination */
 .page-link {
   color: var(--bs-dark);
 }
@@ -166,7 +167,6 @@ p {
 /* styles for cart item */
 
 .item-cart {
-  /* border: 1px solid green; */
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   align-items: center;

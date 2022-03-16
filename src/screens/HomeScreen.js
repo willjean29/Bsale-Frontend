@@ -1,4 +1,5 @@
 import { getProducts, getProductById } from "../api";
+import Error404Screen from "./Error404Screen";
 import { parseRequestUrl } from "../utils";
 import { getCartItems, setCartItems } from "../localStore";
 import { ItemCart } from "../components";
@@ -11,6 +12,7 @@ const HomeScreen = {
       data: { products, pages },
     } = await getProducts(page, category, search);
     console.log(products);
+    if (products.length === 0) return Error404Screen.render();
     return `
       ${products
         .map(
