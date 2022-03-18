@@ -1,6 +1,6 @@
 # BSALE STORE
 
-![BSALE](https://user-images.githubusercontent.com/61263958/158118816-799e0941-1626-4f10-b1b1-e43e32c55649.png)
+![BSALE](https://user-images.githubusercontent.com/61263958/159086233-59744aad-31ec-499b-ac30-8b85b1a1cd85.png)
 
 # Description
 
@@ -31,9 +31,9 @@ Ecommerce to display products, group them by category, search by names and many 
 ## Run Project
 
 ```
-# Git clone https://github.com/willjean29/Bsale-Frontend.github.io.git
+# Git clone https://github.com/willjean29/Bsale-Backend.git
 # Install Dependencies
   npm install
-# Run frontend (:3000)
-  npm start
+# Run frontend (:4000)
+  npm run dev
 ```
